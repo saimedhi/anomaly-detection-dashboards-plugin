@@ -46,6 +46,8 @@ jobs:
                                whoami && yarn osd bootstrap --single-version=loose && yarn build && yarn run test:jest --coverage"
       - name: Uploads coverage
         uses: codecov/codecov-action@v1
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   # TODO: once github actions supports windows and macos docker containers, we can
   # merge these in to the above step's matrix.
@@ -104,4 +106,6 @@ jobs:
           yarn run test:jest --coverage
       - name: Uploads coverage
         uses: codecov/codecov-action@v1
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
